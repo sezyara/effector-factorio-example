@@ -1,0 +1,19 @@
+.counters {
+  display: flex;
+  flex-direction: column;
+}
+
+.instances {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: var(--app-indent);
+}
+
+.instances > *:first-child {
+  margin-right: auto;
+}
+
+.instances > button {
+  margin: 0 calc(var(--app-indent) / 2);
+}

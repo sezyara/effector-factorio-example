@@ -1,0 +1,31 @@
+.btn {
+  appearance: none;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-base);
+  border: 1px solid transparent;
+  color: var(--btn-primary-text-color);
+  cursor: pointer;
+  font-size: 14px;
+  padding: calc(var(--app-indent) / 2) var(--app-indent);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.danger {
+  background-color: var(--danger-color);
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: var(--divider-color);
+  color: var(--btn-ghost-text-color);
+}
+
+.ghost:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.danger.ghost:hover {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}

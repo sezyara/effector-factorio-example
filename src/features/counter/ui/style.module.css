@@ -1,0 +1,15 @@
+.counter {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: var(--app-indent);
+}
+
+.reset {
+  margin-left: var(--app-indent);
+}
+
+.value {
+  font-size: 14px;
+  margin: 0 var(--app-indent);
+}
