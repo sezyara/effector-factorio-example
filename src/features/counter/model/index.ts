@@ -21,8 +21,6 @@ export const counterModelFactory = modelFactory(({
       clock: onReset,
       target: reset
     })
-  } else {
-    console.log(123)
   }
 
   return {
