@@ -1,12 +1,9 @@
-import { createStore, createEvent, sample, is } from 'effector'
+import { createStore, createEvent, is, sample } from 'effector'
 import { modelFactory } from 'effector-factorio'
 import type { CounterProps } from '../types'
 
-export const counterModelFactory = modelFactory(({
-  initialValue = 0,
-  onReset
-}: CounterProps) => {
-  const $counter = createStore(initialValue)
+export const counterModelFactory = modelFactory((params: CounterProps | void) => {
+  const $counter = createStore(params?.initialValue ?? 0)
   const decrement = createEvent()
   const increment = createEvent()
   const reset = createEvent()
@@ -16,9 +13,13 @@ export const counterModelFactory = modelFactory(({
     .on(increment, counter => counter + 1)
     .reset(reset)
 
-  if (is.event(onReset)) {
+  if (
+    typeof params === 'object' &&
+    'onReset' in params &&
+    is.event(params?.onReset)
+  ) {
     sample({
-      clock: onReset,
+      clock: params.onReset,
       target: reset
     })
   }

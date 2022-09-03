@@ -18,7 +18,7 @@ const CounterView = modelView(counterModelFactory, ({ model }) => {
     <div className={classes.counter}>
       <Button
         ghost
-        onClick={() => decrement()}
+        onClick={decrement}
       >
         -
       </Button>
@@ -29,7 +29,7 @@ const CounterView = modelView(counterModelFactory, ({ model }) => {
 
       <Button
         ghost
-        onClick={() => increment()}
+        onClick={increment}
       >
         +
       </Button>
@@ -38,7 +38,7 @@ const CounterView = modelView(counterModelFactory, ({ model }) => {
         className={classes.reset}
         ghost
         danger
-        onClick={() => reset()}
+        onClick={reset}
       >
         Reset
       </Button>
@@ -47,10 +47,10 @@ const CounterView = modelView(counterModelFactory, ({ model }) => {
 })
 
 // memo используется для запрета пересоздания модели компонента фабрикой
-export const Counter = memo((props: CounterProps) => {
+export const Counter = memo((props: CounterProps | void) => {
   const model = counterModelFactory.createModel(props)
 
   return (
     <CounterView model={model} />
   )
-}, (prevProps, nextProps) => prevProps.initialValue === nextProps.initialValue)
+}, (prevProps, nextProps) => prevProps?.initialValue === nextProps?.initialValue)
